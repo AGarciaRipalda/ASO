@@ -8,8 +8,8 @@
 
 Proyecto de administración de sistemas para la gestión de un dominio **Active Directory** del club de fútbol **Real Betis Balompié**. Este proyecto implementa una infraestructura completa de dominio con políticas de grupo, perfiles de usuario, recursos compartidos y control horario de equipos.
 
-**Dominio:** `betis.local`  
-**Servidor:** Windows Server 2022 (LON-DC01)  
+**Dominio:** `betis.local`
+**Servidor:** Windows Server 2022 (LON-DC01)
 **Escenario:** Gestión centralizada de usuarios, equipos y recursos del club
 
 ---
@@ -67,6 +67,7 @@ Aplicada a todo el dominio:
 ### GPOs Específicas por OU
 
 #### 🥅 GPO_Porteros
+
 - ❌ Denegar acceso al Panel de Control
 - 🖼️ Fondo de pantalla personalizado
 - 🔒 Restringir acceso a USB
@@ -74,6 +75,7 @@ Aplicada a todo el dominio:
 - ✅ Windows Defender siempre activo
 
 #### 🛡️ GPO_Defensas
+
 - ❌ Denegar acceso al símbolo del sistema
 - 🚫 Impedir instalación de software
 - 🔄 Deshabilitar reinicios forzados
@@ -81,6 +83,7 @@ Aplicada a todo el dominio:
 - ⚡ Deshabilitar PowerShell
 
 #### ⚽ GPO_Centrocampistas
+
 - 🔧 Desactivar actualizaciones automáticas de controladores
 - 🔒 Restringir acceso a USB
 - 🔕 Ocultar notificaciones del sistema
@@ -88,12 +91,14 @@ Aplicada a todo el dominio:
 - 🛡️ Apagar Windows Defender
 
 #### 🎯 GPO_Delanteros
+
 - 📜 Script de inicio de sesión automático
 - 🔒 Protector de pantalla con contraseña (10 min)
 - 📢 Mensaje de inicio de sesión personalizado
 - 🌐 Gestión remota de PowerShell habilitada
 
 #### ⏰ GPO_ControlHorarioEquipos
+
 - 🕐 Apagado automático a las 22:00
 - 🌅 Encendido automático a las 7:00 (Wake-on-LAN)
 - ⏱️ Restricciones de horario de inicio de sesión
@@ -103,11 +108,13 @@ Aplicada a todo el dominio:
 ## 👤 Perfiles de Usuario
 
 ### Perfiles Móviles
+
 - **Ubicación:** `\\LON-DC01\PerfMovil\%username%`
 - **Aplicado a:** Usuarios de Porteros
 - **Ventaja:** Sincronización automática entre equipos
 
 ### Perfiles Fijos
+
 - **Ubicación:** `\\LON-DC01\PerfFijo\[username]`
 - **Aplicado a:** Usuarios de Defensas
 - **Ventaja:** Configuración consistente y controlada
@@ -118,13 +125,13 @@ Aplicada a todo el dominio:
 
 ### Carpetas Compartidas por OU
 
-| OU | Ruta de Red | Letra de Unidad | Permisos |
-|----|-------------|-----------------|----------|
-| Porteros | `\\LON-DC01\Porteros` | P: | Solo OU Porteros |
-| Defensas | `\\LON-DC01\Defensas` | D: | Solo OU Defensas |
-| Centrocampistas | `\\LON-DC01\Centrocampistas` | C: | Solo OU Centrocampistas |
-| Delanteros | `\\LON-DC01\Delanteros` | E: | Solo OU Delanteros |
-| Administración | `\\LON-DC01\Administracion` | A: | Solo OU Administración |
+| OU              | Ruta de Red                    | Letra de Unidad | Permisos                |
+| --------------- | ------------------------------ | --------------- | ----------------------- |
+| Porteros        | `\\LON-DC01\Porteros`        | P:              | Solo OU Porteros        |
+| Defensas        | `\\LON-DC01\Defensas`        | D:              | Solo OU Defensas        |
+| Centrocampistas | `\\LON-DC01\Centrocampistas` | C:              | Solo OU Centrocampistas |
+| Delanteros      | `\\LON-DC01\Delanteros`      | E:              | Solo OU Delanteros      |
+| Administración | `\\LON-DC01\Administracion`  | A:              | Solo OU Administración |
 
 ### 🖨️ Impresoras Compartidas
 
@@ -150,11 +157,13 @@ Cada departamento tiene su propia impresora con acceso restringido:
 ### Scripts Utilizados
 
 #### Apagado Automático
+
 ```batch
 shutdown /s /f /t 60 /c "El equipo se apagará en 1 minuto. Guarde su trabajo."
 ```
 
 #### Wake-on-LAN (PowerShell)
+
 Script para encendido remoto de equipos mediante paquetes mágicos.
 
 ---
@@ -164,7 +173,6 @@ Script para encendido remoto de equipos mediante paquetes mágicos.
 Este repositorio contiene:
 
 - **[GUIA_PROYECTO_WINDOWS_SERVER.md](GUIA_PROYECTO_WINDOWS_SERVER.md)** - Guía paso a paso completa del proyecto
-- **[GUIA_PROYECTO_WINDOWS_SERVER.docx](GUIA_PROYECTO_WINDOWS_SERVER.docx)** - Versión en formato Word
 - **[UD 04 - Proyecto Windows Server.pdf](UD%2004%20-%20Proyecto%20Windows%20Server.pdf)** - Especificaciones originales del proyecto
 
 ---
@@ -182,38 +190,42 @@ Este repositorio contiene:
 
 ## ✅ Checklist de Implementación
 
-- [x] Dominio `betis.local` creado y funcional
-- [x] 5 OUs principales creadas
-- [x] 52 usuarios creados y organizados
-- [x] GPO de contraseñas aplicada globalmente
-- [x] 5 GPOs específicas configuradas
-- [x] Perfiles móviles implementados
-- [x] Perfiles fijos implementados
-- [x] 5 impresoras compartidas con permisos
-- [x] 5 carpetas compartidas con control de acceso
-- [x] Unidades de red mapeadas automáticamente
-- [x] OU EquiposHorarios creada
-- [x] Control horario automático configurado
-- [x] Scripts de apagado/encendido funcionando
+- [X] Dominio `betis.local` creado y funcional
+- [X] 5 OUs principales creadas
+- [X] 52 usuarios creados y organizados
+- [X] GPO de contraseñas aplicada globalmente
+- [X] 5 GPOs específicas configuradas
+- [X] Perfiles móviles implementados
+- [X] Perfiles fijos implementados
+- [X] 5 impresoras compartidas con permisos
+- [X] 5 carpetas compartidas con control de acceso
+- [X] Unidades de red mapeadas automáticamente
+- [X] OU EquiposHorarios creada
+- [X] Control horario automático configurado
+- [X] Scripts de apagado/encendido funcionando
 
 ---
 
 ## 🧪 Pruebas Realizadas
 
 ### ✓ Pruebas de Usuarios
+
 - Inicio de sesión con usuarios de diferentes OUs
 - Verificación de restricciones de GPO
 
 ### ✓ Pruebas de Perfiles
+
 - Sincronización de perfiles móviles entre equipos
 - Persistencia de configuración en perfiles fijos
 
 ### ✓ Pruebas de Recursos Compartidos
+
 - Acceso correcto a carpetas asignadas
 - Denegación de acceso a carpetas de otras OUs
 - Funcionamiento de impresoras por departamento
 
 ### ✓ Pruebas de Control Horario
+
 - Apagado automático a las 22:00
 - Restricciones de inicio de sesión fuera de horario
 
@@ -221,8 +233,8 @@ Este repositorio contiene:
 
 ## 👨‍💻 Autor
 
-**Alejandro García Ripalda**  
-Proyecto de Administración de Sistemas Operativos  
+**Alejandro García Ripalda**
+Proyecto de Administración de Sistemas Operativos
 ASIR - 2º Curso
 
 ---
@@ -242,4 +254,4 @@ Este proyecto es material educativo desarrollado como parte del ciclo formativo 
 
 ---
 
-**¡Visca el Betis!** 💚🤍
+**¡Viva el Betis manquepierda!** 💚🤍
