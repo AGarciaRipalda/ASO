@@ -1,0 +1,95 @@
+site_name: Proyecto Windows Server 2022 - Real Betis
+site_description: Documentación del proyecto de Active Directory para el Real Betis Balompié
+site_author: Alejandro García Ripalda
+site_url: https://agarciaripalda.github.io/ASO/
+
+repo_name: AGarciaRipalda/ASO
+repo_url: https://github.com/AGarciaRipalda/ASO
+
+theme:
+  name: material
+  language: es
+  palette:
+    # Colores del Real Betis
+    - scheme: default
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.ico
+  logo: assets/logo.png
+
+nav:
+  - Inicio: index.md
+  - Guía Completa: guia-completa.md
+  - Estructura del Dominio: estructura-dominio.md
+  - Directivas de Grupo (GPOs): gpos.md
+  - Recursos Compartidos: recursos-compartidos.md
+  - Control Horario: control-horario.md
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      lang: es
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AGarciaRipalda
+  generator: false
+
+copyright: Copyright &copy; 2026 Alejandro García Ripalda - ASIR 2º
